@@ -67,5 +67,5 @@ https://huggingface.co/docs/transformers/zh/chat_templating
 
 ### 8. LLaVA模型架构图
 
-<img src="/Users/bobo/Desktop/VSProject/Omni-anything/assets/image-20250225201446291.png" alt="image-20250225201446291" style="zoom:100%;" />
+<img src="assets/image-20250225201446291.png" alt="image-20250225201446291" style="zoom:100%;" />
 
