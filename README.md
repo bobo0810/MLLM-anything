@@ -15,3 +15,9 @@ OpenCompass涵盖8个评测集
 - GPT评分：MMVet  MathVista_MINI   HallusionBench  
 - 提交官网评测： MMBench
 
+
+
+## 基础知识
+
+ [Transformer基础](Transformer基础.md) 
+
