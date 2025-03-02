@@ -59,13 +59,12 @@ Can you help me with a math problem? <|im_end|> <EOS>
 
 ### Special Token
 
-| **Special Token** | **含义**             | **用途**                                                     |
-| ----------------- | -------------------- | ------------------------------------------------------------ |
-| `[UNK]`           | Unknown Token        | 未知标记，用于表示输入序列中不在词汇表中的单词。             |
-| `[CLS]`           | Classification Token | 输入序列的开始。                                             |
-| `[SEP]`           | Separator Token      | 输入序列的结束。                                             |
-| `[PAD]`           | Padding Token        | 用于填充短序列，使得所有序列长度一致。                       |
-| `[MASK]`          | Mask Token           | 在掩码语言建模任务中，用于掩盖部分词汇，模型需要预测这些词。 |
+| **Special Token** | **含义**        | **用途**                                         |
+| ----------------- | --------------- | ------------------------------------------------ |
+| `[UNK]`           | Unknown Token   | 未知标记，用于表示输入序列中不在词汇表中的单词。 |
+| `[SEP]`           | Separator Token | 分隔符                                           |
+| `[PAD]`           | Padding Token   | 用于填充短序列，使得所有序列长度一致。           |
+| `[MASK]`          | Mask Token      | 屏蔽部分词汇，模型需要预测这些词。               |
 
 ### Base/Instruction/Chat区别
 
