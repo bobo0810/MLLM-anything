@@ -69,6 +69,7 @@ from ..smp import *
 class MyModel(BaseModel):
     INSTALL_REQ = False
     INTERLEAVE = False # 是否支持图文交错
+    VIDEO_LLM = False # 是否支持视频评测
     def __init__(self,model_path, **kwargs):
         # 加载模型
         self.model=xxx

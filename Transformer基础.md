@@ -1,4 +1,4 @@
-# Transformers基础
+# Transformer基础
 
 
 
@@ -22,6 +22,79 @@ print("原始文本：", text)
 print("解码后的文本：", decoded_text)
 ```
 
+### LLM generate() 和 forward()关系
+
+|            | 作用                              | 定位         |
+| ---------- | --------------------------------- | ------------ |
+| forward()  | 模型进行一次前向计算，得到 logits | 专注训练     |
+| generate() | 控制整个解码流程，得到完整结果    | 专注解码流程 |
+
+
+
+| 输入参数        | **说明**                                     |
+| --------------- | -------------------------------------------- |
+| input_ids       | 模型输入 token 序列                          |
+| past_key_values | 缓存过去的注意力状态，加速生成               |
+| logits          | 模型输出的 token 概率分布，未经过softmax的值 |
+
+<img src="./assets/image-20250313224606103.png" alt="image-20250313224606103" style="zoom:50%;" />
+
+### CausalLMOutputWithPast
+
+自定义CausalLM模型的forward结构化输出格式，是ModelOutput的子类。
+
+```python
+from transformers.modeling_outputs import CausalLMOutputWithPast
+# 定义
+@dataclass
+class CausalLMOutputWithPast(ModelOutput):
+    loss: Optional[torch.FloatTensor] = None
+    logits: torch.FloatTensor = None
+    past_key_values: Optional[Tuple[torch.FloatTensor]] = None
+    hidden_states: Optional[Tuple[torch.FloatTensor]] = None
+    attentions: Optional[Tuple[torch.FloatTensor]] = None
+
+def forward()
+	  xxx
+    return CausalLMOutputWithPast(
+    logits=logits,
+    past_key_values=past_key_values,
+    hidden_states=hidden_states,
+    attentions=attentions
+)
+```
+
+优势是可读性强，使用方便
+
+```python
+output = model(input_ids) # 结构化字典，但是属性访问更方便  而不像这样output[0], output[1] 
+output.logits
+output.past_key_values
+output.loss
+```
+
+### LLM训练流程 
+
+#### Predict next token
+
+<img src="./assets/image-20250320203413067.png" alt="image-20250320203413067" style="zoom:50%;" />
+
+#### 单轮QA
+
+<img src="./assets/image-20250320203512890.png" alt="image-20250320203512890" style="zoom:33%;" />
+
+#### 多轮QA
+
+<img src="./assets/image-20250320203608092.png" alt="image-20250320203608092" style="zoom:80%;" />
+
+#### 多个会话packing
+
+为加速训练，将多个会话打包成一条样本，在每个会话末尾插入EOD（End of Dialogue） ，区分不同的会话，同时确保模型能够正确理解对话边界。计算Attention时，互相无关
+
+<img src="./assets/af20950fd421037ac65485e993102dc8-20250326205909603.png" alt="image-20250320203608092" style="zoom:80%;" />
+
+参考：  [图解LLM训练和推理的秘密](https://zhuanlan.zhihu.com/p/671203641)    [多样本packing图解](https://blog.csdn.net/lyy2017175913/article/details/142449961)
+
 ## 名词解释
 
 ### 全局标记BOS  EOS 
@@ -36,10 +109,11 @@ print("解码后的文本：", decoded_text)
 
 ### 两者区别
 
-|                                | 用途                                       |
-| ------------------------------ | ------------------------------------------ |
-| BOS  EOS                       | 用于**序列生成**，标记整个文本的开始和结束 |
-| <\|im_start\|>    <\|im_end\|> | 用于**对话生成**，区分对话中的不同角色     |
+|                                | 用途                                               |
+| ------------------------------ | -------------------------------------------------- |
+| BOS  EOS                       | 用于**序列生成**，标记整个文本的开始和结束         |
+| <\|im_start\|>    <\|im_end\|> | 用于**对话生成**，区分对话中的不同角色             |
+| <\|endoftext\|>                | EOD、EOF(End of File)。 训练时pack多条样本的分隔符 |
 
 ```
 <|im_start|>user

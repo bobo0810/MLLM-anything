@@ -4,19 +4,22 @@
 
 （1）模型定义和推理
 
-`opencompass/models`目录下新建`MyModel.py`，内容如下。随后在`opencompass/models/__init__.py`导入MyModel类
+`opencompass/models`目录下新建`MyModel.py`，内容如下。
 
 ```python
 from opencompass.models.base import BaseModel
 class MyModel(BaseModel):
     def __init__(self,path):
+        self.template_parser=LMTemplateParser(meta_template)
         # 加载模型
         self.model=xxx
         self.tokenizer=xx
     def generate(self, inputs: List[str], max_out_len: int) -> List[str]:
         xxx
-        return out 
+        return out # list类型  
 ```
+
+然后在`opencompass/models/__init__.py`导入MyModel类
 
 （2）模型配置
 

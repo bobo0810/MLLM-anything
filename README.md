@@ -3,7 +3,9 @@
 
 ## 训练框架
 
-- [LLaMA Factory踩坑指南](LLaMAFactory.md) 
+### [LLaMA Factory](LLaMAFactory.md) 
+
+### [Megatron](Megatron.md) 
 
 
 
@@ -19,7 +21,17 @@
 
 
 
-## 基础知识
+## 基础
 
  [Transformer基础](Transformer基础.md) 
+
+
+
+## Omni最新进展
+
+[Awesome-Multimodal-Large-Language-Models](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models)![Github stars](https://img.shields.io/github/stars/BradyFU/Awesome-Multimodal-Large-Language-Models.svg)
+
+[Awesome-Omni-MLLMs](https://github.com/threegold116/Awesome-Omni-MLLMs)![Github stars](https://img.shields.io/github/stars/threegold116/Awesome-Omni-MLLMs.svg)
+
+[Awesome-Unified-Multimodal](https://github.com/Purshow/Awesome-Unified-Multimodal)![Github stars](https://img.shields.io/github/stars/Purshow/Awesome-Unified-Multimodal.svg)
 
