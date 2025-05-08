@@ -21,9 +21,9 @@
 
 # 评测
 
-|                                     | 说明                      |
-| ----------------------------------- | ------------------------- |
-| [LLM_Eval.md](Eval/LLM_Eval.md)     | OpenCompass文本评测库     |
-| [VLM_Eval.md](Eval/VLM_Eval.md)     | VLMEvalKit多模评测库      |
-| [Audio_Eval.md](Eval/Audio_Eval.md) | UltraEval-Audio语音评测库 |
+|                                     | 说明                                                         |
+| ----------------------------------- | ------------------------------------------------------------ |
+| [LLM_Eval.md](Eval/LLM_Eval.md)     | OpenCompass文本评测库<br>1. 支持新模型                       |
+| [VLM_Eval.md](Eval/VLM_Eval.md)     | VLMEvalKit多模评测库<br>1. 裁判模型适配GPT接口<br>2. 支持新模型 |
+| [Audio_Eval.md](Eval/Audio_Eval.md) | UltraEval-Audio语音评测库<br>1. 支持新模型<br>2. 支持新评测集 |
 

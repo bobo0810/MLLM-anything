@@ -37,7 +37,7 @@ print("解码后的文本：", decoded_text)
 | past_key_values | 缓存过去的注意力状态，加速生成               |
 | logits          | 模型输出的 token 概率分布，未经过softmax的值 |
 
-<img src="./assets/image-20250313224606103.png" alt="image-20250313224606103" style="zoom:50%;" />
+<img src="../assets/image-20250313224606103.png" alt="image-20250313224606103" style="zoom:50%;" />
 
 ### CausalLMOutputWithPast
 
@@ -81,7 +81,7 @@ output.loss
 
 https://zhuanlan.zhihu.com/p/650720185
 
-<img src="./assets/image-20250320203413067.png" alt="image-20250320203413067" style="zoom:50%;" />
+<img src="../assets/image-20250320203413067.png" alt="image-20250320203413067" style="zoom:50%;" />
 
 #### SFT阶段
 
@@ -89,17 +89,17 @@ https://zhuanlan.zhihu.com/p/650720185
 
 - 单轮QA
 
-<img src="./assets/image-20250320203512890.png" alt="image-20250320203512890" style="zoom:33%;" />
+<img src="../assets/image-20250320203512890.png" alt="image-20250320203512890" style="zoom:33%;" />
 
 - 多轮QA
 
-<img src="./assets/image-20250320203608092.png" alt="image-20250320203608092" style="zoom:80%;" />
+<img src="../assets/image-20250320203608092.png" alt="image-20250320203608092" style="zoom:80%;" />
 
 - 多个会话packing
 
 为加速训练，将多个会话打包成一条样本，在每个会话末尾插入EOD（End of Dialogue） ，区分不同的会话，同时确保模型能够正确理解对话边界。计算Attention时，互相无关
 
-<img src="./assets/af20950fd421037ac65485e993102dc8-20250326205909603.png" alt="image-20250320203608092" style="zoom:80%;" />
+<img src="../assets/af20950fd421037ac65485e993102dc8-20250326205909603.png" alt="image-20250320203608092" style="zoom:80%;" />
 
 packing时position_ids（1）如果attention_mask可区分，则计算attention时视作独立的N个样本。因为只看相对位置信息，position_ids每个sample从1开始，或者直接从1~8k 两种方式没有差异。（2）如果attention_mask不区分，视作单条样本，position_ids必须1~8k。
 
@@ -203,5 +203,5 @@ https://huggingface.co/docs/transformers/zh/chat_templating
 
 ### LLaVA模型架构图
 
-![image-20250226103138835](./assets/image-20250226103138835.png)
+![image-20250226103138835](../assets/image-20250226103138835.png)
 
