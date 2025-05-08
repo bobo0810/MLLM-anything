@@ -75,23 +75,35 @@ output.loss
 
 ### LLM训练流程 
 
-#### Predict next token
+#### Pretrain阶段
+
+数据格式是文本序列，持续预测下一个词，都需要计算loss。目的是让模型学习语言结构。
+
+https://zhuanlan.zhihu.com/p/650720185
 
 <img src="./assets/image-20250320203413067.png" alt="image-20250320203413067" style="zoom:50%;" />
 
-#### 单轮QA
+#### SFT阶段
+
+数据格式是Question+ Answer，只对Answer 计算 Loss，目的是让模型完成问答、对话等特定任务。
+
+- 单轮QA
 
 <img src="./assets/image-20250320203512890.png" alt="image-20250320203512890" style="zoom:33%;" />
 
-#### 多轮QA
+- 多轮QA
 
 <img src="./assets/image-20250320203608092.png" alt="image-20250320203608092" style="zoom:80%;" />
 
-#### 多个会话packing
+- 多个会话packing
 
 为加速训练，将多个会话打包成一条样本，在每个会话末尾插入EOD（End of Dialogue） ，区分不同的会话，同时确保模型能够正确理解对话边界。计算Attention时，互相无关
 
 <img src="./assets/af20950fd421037ac65485e993102dc8-20250326205909603.png" alt="image-20250320203608092" style="zoom:80%;" />
+
+packing时position_ids（1）如果attention_mask可区分，则计算attention时视作独立的N个样本。因为只看相对位置信息，position_ids每个sample从1开始，或者直接从1~8k 两种方式没有差异。（2）如果attention_mask不区分，视作单条样本，position_ids必须1~8k。
+
+megatron用cu_lengths区分不同样本
 
 参考：  [图解LLM训练和推理的秘密](https://zhuanlan.zhihu.com/p/671203641)    [多样本packing图解](https://blog.csdn.net/lyy2017175913/article/details/142449961)
 

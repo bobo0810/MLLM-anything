@@ -1,4 +1,4 @@
-# OpenCompass
+# OpenCompass-LLM评测库
 
 ## 支持新模型
 

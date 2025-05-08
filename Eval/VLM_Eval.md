@@ -1,4 +1,4 @@
-# VLMEvalKit多模评测库
+# VLMEvalKit-多模评测库
 
 ## OpenCompass榜单
 
