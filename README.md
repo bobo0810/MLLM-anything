@@ -8,7 +8,7 @@
 | ------------------------------------------------------------ | ---------------- |
 | [Transformer基础.md](基础知识/Transformer基础.md)            | 基础知识         |
 | [Awesome-Multimodal-Large-Language-Models](https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models)![Github stars](https://img.shields.io/github/stars/BradyFU/Awesome-Multimodal-Large-Language-Models.svg)<br>[Awesome-Omni-MLLMs](https://github.com/threegold116/Awesome-Omni-MLLMs)![Github stars](https://img.shields.io/github/stars/threegold116/Awesome-Omni-MLLMs.svg)  <br>[Awesome-Unified-Multimodal](https://github.com/Purshow/Awesome-Unified-Multimodal)![Github stars](https://img.shields.io/github/stars/Purshow/Awesome-Unified-Multimodal.svg) | 追踪Omni最新进展 |
-| https://zhuanlan.zhihu.com/p/693272847/edit                  | VLM最新进展      |
+| https://zhuanlan.zhihu.com/p/693272847                       | VLM最新进展      |
 
 # 训练
 
