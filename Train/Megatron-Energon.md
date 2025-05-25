@@ -122,27 +122,21 @@
 
 
 
-## 数据流
-
-[数据流& 函数调用流程](https://nvidia.github.io/Megatron-Energon/basic/basics_flow.html) 
-
 ## 自定义Task Encoder 
 
 [官方文档](https://nvidia.github.io/Megatron-Energon/basic/task_encoder.html)
 
-在整个数据流，灵活自定义每个函数。完整示例代码在本仓库`code/my_task_encoder.py`
+在整个数据流，灵活自定义每个函数。完整示例代码在本仓库`code/my_task_encoder.py`   
+
+更详细的数据流和函数调用图访问[link](https://nvidia.github.io/Megatron-Energon/basic/basics_flow.html)
+
+![image-20250512200557277](./assets/image-20250512200557277.png)
 
 常用的几个方法
 
 1. encode_sample    如何解析原始数据。  如果当前样本残缺，可通过raise `IgnoreSample` 跳过当前样本。
 2. select_samples_to_pack  （可选）自定义哪种packing策略  比如greedy、lphfp
 3. pack_selected_samples   自定义packing过程
-
-
-
-![image-20250512200557277](./assets/image-20250512200557277.png)
-
-
 
 
 
