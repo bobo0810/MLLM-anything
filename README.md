@@ -12,11 +12,11 @@
 
 # 训练
 
-|                                                  | 说明                               |
-| ------------------------------------------------ | ---------------------------------- |
-| [Megatron.md](Train/Megatron.md)                 | 大规模预训练框架                   |
-| [Megatron-Energon.md](Train/Megatron-Energon.md) | 大规模数据加载库，搭配Megatron使用 |
-| [LLaMAFactory.md](Train/LLaMAFactory.md)         | 大模型微调框架                     |
+|                                                              | 说明                               |
+| ------------------------------------------------------------ | ---------------------------------- |
+| [Megatron](https://zhuanlan.zhihu.com/p/1914814494565176427) | 大规模分布式预训练框架 学习笔记    |
+| [Megatron-Energon.md](Train/Megatron-Energon.md)             | 大规模数据加载库，搭配Megatron使用 |
+| [LLaMAFactory.md](Train/LLaMAFactory.md)                     | 大模型微调框架                     |
 
 # 评测
 
